@@ -1,0 +1,271 @@
+<style>
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  height: 100%;
+  background: #d6d3cf;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background-color: darkslategray;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 600px;
+  height: 486px;
+  min-height: 486px;
+  background: white;
+  border-radius: 5px;
+  top:200px;
+  border: 1px solid;
+}
+
+.box-left {
+  position: relative;
+  width: 278px;
+}
+.box-right {
+  padding-left: 65px;
+  width: 408px;
+}
+.box__bg {
+  position: absolute;
+  border-radius: 5px;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #76c5b5 0%, #536291 100%);
+}
+.box__brand {
+  position: absolute;
+  z-index: 2;
+  top: 30%;
+  left: 10%;
+  font-family: "Berkshire Swash", cursive;
+  font-size: 49px;
+  color: white;
+}
+.box__login {
+  position: relative;
+  top: 36px;
+  right: 30px;
+  font-size: 12px;
+  text-align: right;
+}
+.box__login-button {
+  margin-left: 10px;
+}
+.box__content {
+  position: relative;
+  top: 126px;
+  padding: 16px;
+}
+.box__content1 {
+  position: relative;
+  top: 40px;
+  padding: 16px;
+}
+.box__title {
+  margin-bottom: 20px;
+  font-size: 30px;
+  line-height: 28px;
+  text-rendering: optimizeLegibility;
+}
+.box__title1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  line-height: 28px;
+  text-rendering: optimizeLegibility;
+}
+.box__caption {
+  margin-bottom: 20px;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  font-smoothing: antialiased;
+  line-height: 18px;
+  text-rendering: optimizeLegibility;
+}
+
+
+
+.button {
+  padding: 12px;
+  width: 76px;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.button__primary {
+  background: linear-gradient(135deg, #76c5b5 0%, #536291 100%);
+  border-radius: 5px;
+  color: white;
+  width: 170px;
+}
+.button--circle {
+  padding: 5px 10px;
+  border-radius: 50%;
+  line-height: 0;
+}
+
+.copy {
+  margin-top: 20px;
+  font-size: 12px;
+  text-align: center;
+}
+.copy strong {
+  color: #536291;
+}
+.copy a {
+  text-decoration: none;
+  color: #536291;
+}
+.column {
+    float: left;
+    width: 50%;
+}
+
+.windyservice_chart_canvas{
+  height: 700px!important;
+  width: 500px
+}
+
+</style>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pdigital-twin-timeseries App</title>
+  <!--<link rel="stylesheet" href="stylesheets/style.css"></link>-->
+  <link rel="stylesheet" href="stylesheets/bootstrap.min.css"></link>
+  <script src="../scripts/Chart.js"></script>
+  <script src="../scripts/Timeseries.js"></script>
+  <script src="../scripts/Asset.js"></script>
+  <script src="../scripts/bootstrap.min.js"></script>
+</head>
+<body onload="configureTagsTimeseriesData();">
+
+
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="box box--bg">
+          <div class="box-left">
+            <div class="menu"><a class="menu__trigger"><span></span></a></div>
+            <div class="box__bg"></div>
+            <h1 class="box__brand">Secure Page</h1>
+          </div>
+          <div class="box-right">
+              <div class="box__login">Home<a class="box__login-button button button__primary button--circle"  href="/"  style="text-decoration:none; color:white">&#8250;</a></div>
+                <br/>
+            <div class="box__login">Logout<a class="box__login-button button button__primary button--circle"  href="/logout" style="text-decoration:none; color:white">&#8250;</a></div>
+            <div class="box__content1">
+              <h2 class="box__title1">Timeseries data Microserveice integeration.</h2>
+              <div class="box__caption">
+                <div class="timeseries_machine_container">
+                  <table>
+                    <tr>
+                      <td>
+                        <p><b id="predix_asset_table"></b></p>
+                        <table id="aTable"></table>
+                        <div style="height:100px;left: 0">
+                          <a href="javascript:detailAssetModel();" id="assset_detail_link" style="display: none;">View Asset Model</a>
+                        </div>
+
+                        <div id="myModal" class="modal">
+
+                          <div class="modal-content">
+                            <span class="close" onclick="assetDetailCLose();">x</span>
+                              <textarea id="asset_detail_model" class="asset_detail_model" style="width:100%"></textarea>
+                          </div>
+
+                        </div>
+                      </td>
+                      <td>
+                    <p> <b>Select Tags </b></p>
+                    <select multiple id="tagList" class='tag-multiple'>
+                    </select>
+                  </td><td>
+                    <p> <b>Start time</b></p>
+                      <select id='start-time' class ='start-time'>
+                        <option value="5mi-ago">5mi-ago</option>
+                        <option value="15mi-ago">15mi-ago</option>
+                        <option value="30mi-ago">30mi-ago</option>
+                        <option value="45mi-ago">45mi-ago</option>
+                        <option value="45mi-ago">45mi-ago</option>
+                        <option value="1h-ago">1h-ago</option>
+                        <option value="5h-ago">5h-ago</option>
+                        <option value="10h-ago">10h-ago</option>
+                        <option value="1d-ago">1d-ago</option>
+                        <option value="5d-ago">5d-ago</option>
+                        <option value="10d-ago">10d-ago</option>
+                        <option value="1w-ago">1w-ago</option>
+                        <option value="2w-ago">2w-ago</option>
+                        <option value="3w-ago">3w-ago</option>
+                        <option value="1mm-ago">1mm-ago</option>
+                        <option value="2mm-ago">2mm-ago</option>
+                        <option value="3mm-ago">3mm-ago</option>
+                        <option value="5mm-ago">5mm-ago</option>
+                        <option value="6mm-ago">6mm-ago</option>
+                        <option value="8mm-ago">8mm-ago</option>
+                        <option value="1y-ago" selected='selected'>1y-ago</option>
+                      </select>
+
+                  </td></tr></table>
+                    <button type="button" class="button button__primary" style="width:235px" id="timeseries_button" onclick="onclick_machineServiceData();">Submit</button>
+
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        
+        <p id="windService_machine_yearly"></p>
+  <div style="width:80%;background-color:white">
+    <h3 id='line_chart_info'></h3>
+    <div id="add_machine_canvas">
+      <p id="windService_machine_tag"></p>
+    </div>
+      </div>
+      </div>
+  </div>
+
+  </body>
+
+</html>

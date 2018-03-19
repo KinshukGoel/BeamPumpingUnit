@@ -1,0 +1,196 @@
+<style>
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html {
+  min-height: 100%;
+}
+body {
+  height: 100%;
+  background: #d6d3cf;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  smoothing: antialiased;
+  background-color: darkslategray;
+  text-rendering: optimizeLegibility;
+}
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 686px;
+  height: 486px;
+  min-height: 486px;
+  background: white;
+  border-radius: 5px;
+}
+.box-left {
+  position: relative;
+  width: 278px;
+}
+.box-right {
+  padding-left: 65px;
+  width: 408px;
+}
+.box__bg {
+  position: absolute;
+  border-radius: 5px;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #76c5b5 0%, #536291 100%);
+}
+.box__brand {
+  position: absolute;
+  z-index: 2;
+  top: 30%;
+  left: 32%;
+  font-family: "Berkshire Swash", cursive;
+  font-size: 49px;
+  color: white;
+}
+.box__login {
+  position: relative;
+  top: 36px;
+  right: 30px;
+  font-size: 12px;
+  text-align: right;
+}
+.box__login-button {
+  margin-left: 10px;
+}
+.box__content {
+  position: relative;
+  top: 126px;
+  padding: 16px;
+}
+.box__content1 {
+  position: relative;
+  top: 40px;
+  padding: 16px;
+}
+.box__title {
+  margin-bottom: 20px;
+  font-size: 30px;
+  line-height: 28px;
+  text-rendering: optimizeLegibility;
+}
+.box__title1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  line-height: 28px;
+  text-rendering: optimizeLegibility;
+}
+.box__caption {
+  margin-bottom: 20px;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  font-smoothing: antialiased;
+  line-height: 18px;
+  text-rendering: optimizeLegibility;
+}
+.button {
+  padding: 12px;
+  width: 76px;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.button__primary {
+  background: linear-gradient(135deg, #76c5b5 0%, #536291 100%);
+  border-radius: 5px;
+  color: white;
+  width: 170px;
+}
+.button--circle {
+  padding: 5px 10px;
+  border-radius: 50%;
+  line-height: 0;
+}
+.copy {
+  margin-top: 20px;
+  font-size: 12px;
+  text-align: center;
+}
+.copy strong {
+  color: #536291;
+}
+.copy a {
+  text-decoration: none;
+  color: #536291;
+}
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Predix Node JS Starter App</title>
+  <!--<link rel="stylesheet" href="stylesheets/style.css"></link>-->
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css"></link>
+  <script src="../scripts/learningpaths.js"></script>
+    <script src="../scripts/bootstrap.min.js"></script>
+</head>
+<body onload="learningPaths(this);">
+<body>
+  <section class="section">
+
+      <ul style="display:none">
+
+
+
+
+        <div class="wrapper">
+          <div class="box box--bg" style="border:1px solid">
+            <div class="box-left">
+
+              <div class="box__bg"></div>
+              <h1 class="box__brand">BPU TED</h1>
+            </div>
+            <div class="box-right">
+              <div class="box__login">Login<a class="box__login-button button button__primary button--circle" href="/login?state=secure" style="text-decoration:none; color:white">&#8250;</a></div>
+              <div class="box__content">
+                <h2 class="box__title">Digital-Twin Timeseries App Built on predix Cloud</h2>
+                <div class="box__caption">
+
+
+                </div>
+                <li id=securepage >
+                        <div class="button button__primary">  <a href="/secure" style="text-decoration:none; color:white">Secure Page</a></div>
+
+                </li>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+    </ul>
+  </section>
+  <div class="footer">
+    <div class="footer-logo-container">
+    </div>
+  </div>
+</body>
+</html>
